@@ -15,4 +15,5 @@ public class Touch {
     static final int PLAYER_TWO_MOVE_UP = KeyEvent.VK_UP;
     static final int PLAYER_TWO_MOVE_DOWN = KeyEvent.VK_DOWN;
     static final int PLAYER_TWO_FIRE = KeyEvent.VK_INSERT;
+    static final int PLAYER_ESCAPE = KeyEvent.VK_ESCAPE; 
 }

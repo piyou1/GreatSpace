@@ -2,6 +2,7 @@ package com.greatspace.controller;
 
 import com.greatspace.interfaces.IStrategy;
 import com.greatspace.model.Player;
+import com.greatspace.view.Windows;
 
 import java.awt.event.KeyEvent;
 
@@ -85,6 +86,8 @@ public enum Controller implements IStrategy {
                     case PLAYER_TWO_MOVE_RIGHT:
                         player.setDx(1);
                         break;
+                    case PLAYER_ESCAPE:
+                    
                 }
             }
         }
@@ -111,4 +114,6 @@ public enum Controller implements IStrategy {
             }
         }
     }
+    
+    
 }

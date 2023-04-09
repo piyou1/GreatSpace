@@ -10,6 +10,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -37,14 +39,14 @@ public class Game extends JPanel implements ActionListener {
     private final Timer timer;
     private final Player playeOne;
     private final Player playerTwo;
-
+    public boolean escape = false; 
     private boolean p2 = false;
     private boolean playing;
     private boolean begin;
     private boolean isWon;
 
     private List<Enemy> enemies;
-
+  
     public Game()
     {
 
@@ -397,12 +399,35 @@ public class Game extends JPanel implements ActionListener {
     {
         return this.p2;
     }
+    boolean getEscape(){
+
+        return escape; 
+   }
 
     private class TecladoAdapter extends KeyAdapter {
 
         @Override
         public void keyPressed(KeyEvent e)
         {
+            if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+           System.exit(0);
+           escape = true; 
+           Windows.main(null); 
+          try {
+            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Windows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            Windows window = new Windows();
+        });
+        
+        
+        
+        
+        }
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 if (playing == false) {
                     playing = true;
@@ -422,9 +447,10 @@ public class Game extends JPanel implements ActionListener {
                     initEnemy();
                 }
             }
-            if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                playing = false;
-            }
+           /*  if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+               
+                new Window(); 
+            }*/
 
             playeOne.getControle().keyPressed(playeOne, e);
             if (p2) {
@@ -440,6 +466,9 @@ public class Game extends JPanel implements ActionListener {
                 playerTwo.getControle().keyReleased(playerTwo, e);
             }
         }
+   
+        
 
-    }
 }
+}
+

@@ -1,5 +1,9 @@
 package com.greatspace.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -13,11 +17,13 @@ import javax.swing.JFrame;
  * @Class: Window
  * @Objective: Create the Main Window
  */
-public class Window {
 
-    public Window() {
+ public class Windows {
 
-        JFrame frame = new JFrame("Great Space");
+    JFrame frame = new JFrame("Great Space");
+    public Windows() {
+
+       
         Game f = new Game();
         f.checkPlayer();
         frame.add(f);
@@ -35,21 +41,34 @@ public class Window {
             System.out.println("ImageError: " + e);
         }
         frame.setVisible(true);
+       
+       
+
     }
+   
+       
+
+    
+
+
 
     public static void main(String[] args) {
-        /* Set the System look and feel */
+         /* Set the System look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        try {
+       /*  try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Window.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Windows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        /* Create and display the form */
+        /* Create and display the form 
         java.awt.EventQueue.invokeLater(() -> {
-            Window window = new Window();
-        });
-
+            Windows window = new Windows();
+         }); 
+           */
+          System.out.println("Hello"); 
+      
     }
-}
+ }
+  
+
