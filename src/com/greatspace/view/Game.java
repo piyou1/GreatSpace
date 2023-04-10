@@ -47,7 +47,7 @@ public class Game extends JPanel implements ActionListener {
 
     private List<Enemy> enemies;
   
-    Stopwatch stopwatch = Stopwatch.createStarted();
+   // Stopwatch stopwatch = Stopwatch.createStarted();
          public Game()
     {
 
@@ -190,8 +190,7 @@ public class Game extends JPanel implements ActionListener {
         graficos.drawImage(background, 0, 0, null);
 
         if (playing) {
-            Timer stopwatch = new Timer(0,this); 
-            stopwatch.start(); 
+           
             if (playeOne.isDead() == false) {
                 graficos.drawImage(playeOne.getImage(), playeOne.getX(), playeOne.getY(), this);
             }
