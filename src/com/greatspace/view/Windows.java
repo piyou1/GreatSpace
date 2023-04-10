@@ -20,9 +20,9 @@ import javax.swing.JFrame;
 
  public class Windows {
 
-    JFrame frame = new JFrame("Great Space");
+     static  JFrame frame; 
     public Windows() {
-
+         frame = new JFrame("Great Space");
        
         Game f = new Game();
         f.checkPlayer();
@@ -53,22 +53,30 @@ import javax.swing.JFrame;
 
 
     public static void main(String[] args) {
-         /* Set the System look and feel */
+         // Set the System look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-       /*  try {
+         try {
             javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Windows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        /* Create and display the form 
+        // Create and display the form 
         java.awt.EventQueue.invokeLater(() -> {
             Windows window = new Windows();
          }); 
-           */
-          System.out.println("Hello"); 
+          
+        
+              
+          
+           System.out.println("Hello WOrld"); 
       
     }
- }
+    public  static void gone(){
+       frame.dispose(); 
+        Windows.main(null); 
+    }
+}
+ 
   
 

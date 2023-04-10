@@ -47,7 +47,8 @@ public class Game extends JPanel implements ActionListener {
 
     private List<Enemy> enemies;
   
-    public Game()
+    Stopwatch stopwatch = Stopwatch.createStarted();
+         public Game()
     {
 
         this.nave = new Player();
@@ -106,8 +107,15 @@ public class Game extends JPanel implements ActionListener {
         close.addActionListener((ActionEvent e) -> {
             System.exit(0);
         });
+        JMenuItem m = new JMenuItem("MainMenu"); 
+        m.addActionListener((ActionEvent e) -> {
+           //Windows h = new Windows(); 
+           Windows.gone(); 
+            
+        });
         // Add fechar menu item to the jogo menu
         game.add(close);
+        game.add(m); 
 
         JMenu help = new JMenu("Help");
 
@@ -182,7 +190,8 @@ public class Game extends JPanel implements ActionListener {
         graficos.drawImage(background, 0, 0, null);
 
         if (playing) {
-
+            Timer stopwatch = new Timer(0,this); 
+            stopwatch.start(); 
             if (playeOne.isDead() == false) {
                 graficos.drawImage(playeOne.getImage(), playeOne.getX(), playeOne.getY(), this);
             }
@@ -224,8 +233,8 @@ public class Game extends JPanel implements ActionListener {
 
             ImageIcon wonImage = new ImageIcon(getClass().getResource("/com/greatspace/sprites/game_won.png"));
 
-            graficos.drawImage(wonImage.getImage(), 0, 0, null);
-
+            graficos.drawImage( wonImage.getImage(), 0, 0, null);
+           
         } else if (begin) {
 
             ImageIcon bg_ = new ImageIcon(getClass().getResource("/com/greatspace/sprites/main_menu.png"));
@@ -410,23 +419,18 @@ public class Game extends JPanel implements ActionListener {
         public void keyPressed(KeyEvent e)
         {
             if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-           System.exit(0);
-           escape = true; 
-           Windows.main(null); 
-          try {
-            javax.swing.UIManager.setLookAndFeel(javax.swing.UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Windows.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            Windows window = new Windows();
-        });
-        
-        
-        
-        
+                if(playing == true){
+                    playing = false; 
+                    begin = true; 
+                   // playeOne.setMorto(true);
+                   // playerTwo.setMorto(true); 
+                    // isWon = false; 
+                    
+                      }
+                      else{
+                        begin = true; 
+                  }
+           //Windows.main(null); 
         }
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
                 if (playing == false) {
