@@ -26,7 +26,6 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-//import com.google.common.base.Stopwatch; 
 
 /**
  * Date: 13/02/2016
@@ -43,9 +42,9 @@ public class Game extends JPanel implements ActionListener {
     public boolean escape = false; 
     private boolean p2 = false;
     private boolean playing;
-    private boolean begin; 
+    private boolean begin;
     private boolean isWon;
-     //Stopwatch stopwatch = Stopwatch.createStarted();
+
     private List<Enemy> enemies;
   
    // Stopwatch stopwatch = Stopwatch.createStarted();
